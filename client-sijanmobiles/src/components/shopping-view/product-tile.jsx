@@ -9,9 +9,15 @@ function ShoppingProductTile({
   handleAddtoCart,
 }) {
   return (
-    <Card className="w-full mt-4 max-w-sm mx-auto" style={{"box-shadow": "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px", }} >
+    <Card
+      className="w-full mt-4 max-w-sm mx-auto"
+      style={{
+        boxShadow:
+          "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+      }}
+    >
       <div onClick={() => handleGetProductDetails(product?._id)}>
-        <div className="relative " >
+        <div className="relative ">
           <img
             src={product?.image}
             alt={product?.title}

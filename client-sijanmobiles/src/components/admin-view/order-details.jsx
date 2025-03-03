@@ -89,8 +89,8 @@ function AdminOrderDetailsView({ orderDetails }) {
             <div className="font-medium">Order Details</div>
             <ul className="grid gap-3">
               {orderDetails?.cartItems && orderDetails?.cartItems.length > 0
-                ? orderDetails?.cartItems.map((item) => (
-                    <li className="flex items-center justify-between">
+                ? orderDetails?.cartItems.map((item, key) => (
+                    <li className="flex items-center justify-between" key={key}>
                       <span>Title: {item.title}</span>
                       <span>Quantity: {item.quantity}</span>
                       <span>Price: ${item.price}</span>

@@ -12,7 +12,7 @@ function AdminCategoryTile({
     <Card
       className="w-full max-w-sm mx-auto hover:shadow-xl "
       style={{
-        "box-shadow":
+        boxShadow:
           "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
       }}
     >

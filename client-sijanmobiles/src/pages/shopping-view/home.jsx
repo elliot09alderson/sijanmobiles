@@ -6,12 +6,17 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   CloudLightning,
+  Computer,
+  ComputerIcon,
   Headphones,
   Heater,
   Images,
+  Monitor,
+  Settings,
   Shirt,
   ShirtIcon,
   ShoppingBasket,
+  Smartphone,
   UmbrellaIcon,
   WashingMachine,
   WatchIcon,
@@ -29,18 +34,53 @@ import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 import { useToast } from "@/components/ui/use-toast";
 import ProductDetailsDialog from "@/components/shopping-view/product-details";
 import { getFeatureImages } from "@/store/common-slice";
+import display from "/icons/display.png";
+import screenguard from "/icons/screenguard.png";
+import secondphone from "/icons/secondphone.png";
+import oneplus from "/brand/oneplus.jpg";
+import Oppo from "/brand/Oppo.png";
+import realme from "/brand/realme.png";
+import samsung from "/brand/samsung.jpg";
+import Ui from "/brand/Ui.jpg";
+import vivo from "/brand/vivo.png";
+import Xiaomi from "/brand/Xiaomi.png";
 
 const categoriesWithIcon = [
-  { id: "Audio", label: "Audio Device", icon: Headphones },
-  { id: "Display", label: "Display", icon: ShirtIcon },
-  { id: "Used Phone", label: "Used Phone", icon: CloudLightning },
-  { id: "New Phones", label: "New Phones", icon: BabyIcon },
-  { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "Repairing Service", label: "Repairing Service", icon: UmbrellaIcon },
-  { id: "Screen Gourd", label: "Screen Gourd", icon: UmbrellaIcon },
-  { id: "Computer Parts", label: "Computer Parts", icon: UmbrellaIcon },
-];
+  { id: "Display", label: "Display", icon: display, type: "image" },
+  { id: "Screenguard", label: "Screenguard", icon: screenguard, type: "image" },
+  { id: "SecondPhone", label: "Used Phones", icon: secondphone, type: "image" },
+  {
+    id: "Audio",
+    label: "Earbuds / Neckbands",
+    icon: Headphones,
+    type: "icon",
+  },
 
+  { id: "accessories", label: "Accessories", icon: WatchIcon, type: "icon" },
+  {
+    id: "Repairing Service",
+    label: "Repairing Service",
+    icon: Settings,
+    type: "icon",
+  },
+
+  {
+    id: "Computer Parts",
+    label: "Computer Parts",
+    icon: Monitor,
+    type: "icon",
+  },
+];
+const brands = [
+  { id: "oppo", label: "oppo", icon: Oppo },
+  { id: "oneplus", label: "oneplus", icon: oneplus },
+
+  { id: "vivo", label: "Vivo", icon: vivo },
+  { id: "xiaomi", label: "Xiaomi", icon: Xiaomi },
+  { id: "ui", label: "Ui", icon: Ui },
+  { id: "samsung", label: "samsung", icon: samsung },
+  { id: "realme", label: "realme", icon: realme },
+];
 const brandsWithIcon = [
   { id: "nike", label: "sumsung", icon: Shirt },
   { id: "adidas", label: "MI", icon: WashingMachine },
@@ -124,7 +164,7 @@ function ShoppingHome() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="relative w-full h-[600px] overflow-hidden">
+      <div className="relative w-full lg:h-[600px] h-[300px] overflow-hidden">
         {featureImageList && featureImageList.length > 0
           ? featureImageList.map((slide, index) => (
               <img
@@ -132,7 +172,7 @@ function ShoppingHome() {
                 key={index}
                 className={`${
                   index === currentSlide ? "opacity-100" : "opacity-0"
-                } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000`}
+                } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500`}
               />
             ))
           : null}
@@ -169,17 +209,28 @@ function ShoppingHome() {
             Shop by category
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categoriesWithIcon.map((categoryItem) => (
+            {categoriesWithIcon.map((categoryItem, idx) => (
               <Card
+                key={idx}
                 onClick={() =>
                   handleNavigateToListingPage(categoryItem, "category")
                 }
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
-                <CardContent className="flex flex-col items-center justify-center p-6">
-                  <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
-                  <span className="font-bold">{categoryItem.label}</span>
-                </CardContent>
+                {categoryItem.type == "icon" ? (
+                  <CardContent className="flex flex-col items-center justify-center p-6">
+                    <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
+                    <span className="font-bold">{categoryItem.label}</span>
+                  </CardContent>
+                ) : (
+                  <CardContent className="flex flex-col items-center justify-center p-6">
+                    <img
+                      className="w-12 h-12 mb-4 text-primary"
+                      src={categoryItem.icon}
+                    />
+                    <span className="font-bold">{categoryItem.label}</span>
+                  </CardContent>
+                )}
               </Card>
             ))}
           </div>
@@ -190,13 +241,17 @@ function ShoppingHome() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Shop by Brand</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {brandsWithIcon.map((brandItem) => (
+            {brands.map((brandItem, dix) => (
               <Card
+                key={dix + "ASDASD"}
                 onClick={() => handleNavigateToListingPage(brandItem, "brand")}
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
-                  <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
+                  <img
+                    className="w-18 h-12 mb-4 text-primary"
+                    src={brandItem.icon}
+                  />
                   <span className="font-bold">{brandItem.label}</span>
                 </CardContent>
               </Card>
@@ -212,8 +267,9 @@ function ShoppingHome() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {productList && productList.length > 0
-              ? productList.map((productItem) => (
+              ? productList.map((productItem, dix) => (
                   <ShoppingProductTile
+                    key={dix + "ASD"}
                     handleGetProductDetails={handleGetProductDetails}
                     product={productItem}
                     handleAddtoCart={handleAddtoCart}
