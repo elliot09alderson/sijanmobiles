@@ -32,6 +32,7 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: [
+      "https://sijanmobiles.vercel.app",
       process.env.LOCAL_FRONTED,
       process.env.PRODUCTION_FRONTEND_VERCEL,
       process.env.PRODUCTION_FRONTEND,
