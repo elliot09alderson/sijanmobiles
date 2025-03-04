@@ -61,6 +61,8 @@ function ShoppingListing() {
     const indexOfCurrentSection = Object.keys(cpyFilters).indexOf(getSectionId);
 
     if (indexOfCurrentSection === -1) {
+      // if not present
+
       cpyFilters = {
         ...cpyFilters,
         [getSectionId]: [getCurrentOption],

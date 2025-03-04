@@ -38,7 +38,46 @@ export const loginFormControls = [
     type: "password",
   },
 ];
+export const filterOptions = {
+  category: [
+    { id: "display", label: "Display" },
+    {
+      id: "screenguard",
+      label: "Screenguard",
+    },
+    {
+      id: "usedphones",
+      label: "Used Phones",
+    },
+    {
+      id: "wearables",
+      label: "Wearables",
+    },
 
+    { id: "accessories", label: "Accessories" },
+    {
+      id: "repairing",
+      label: "Repairing Service",
+    },
+
+    {
+      id: "computerAccessories",
+      label: "Computer Parts",
+    },
+  ],
+  brand: [
+    { id: "oppo", label: "oppo" },
+    { id: "oneplus", label: "oneplus" },
+
+    { id: "vivo", label: "Vivo" },
+    { id: "xiaomi", label: "Xiaomi" },
+    { id: "ui", label: "Ui" },
+    { id: "samsung", label: "Samsung" },
+    { id: "realme", label: "Realme" },
+    { id: "boat", label: "Boat" },
+    { id: "other", label: "other" },
+  ],
+};
 export const addProductFormElements = [
   {
     label: "Title",
@@ -57,26 +96,13 @@ export const addProductFormElements = [
     label: "Category",
     name: "category",
     componentType: "select",
-    options: [
-      { id: "display", label: "display" },
-      { id: "usedphone", label: "usedphone" },
-      { id: "newphones", label: "newphones" },
-      { id: "accessories", label: "Accessories" },
-      { id: "repairingservices", label: "repairingservices" },
-    ],
+    options: filterOptions.category,
   },
   {
     label: "Brand",
     name: "brand",
     componentType: "select",
-    options: [
-      { id: "sunsung", label: "sunsung" },
-      { id: "MI", label: "MI" },
-      { id: "oneplus", label: "oneplus" },
-      { id: "vivo&oppo", label: "vivo&oppo's" },
-      { id: "Iphone", label: "Iphone" },
-      { id: "nokia", label: "nokia" },
-    ],
+    options: filterOptions.brand,
   },
   {
     label: "Price",
@@ -119,64 +145,51 @@ export const shoppingViewHeaderMenuItems = [
   },
   {
     id: "usedphone",
-    label: "usedphone",
+    label: "used phone",
     path: "/shop/listing",
   },
   {
     id: "newphones",
-    label: "newphones",
+    label: "new phones",
     path: "/shop/listing",
   },
   {
     id: "repairingservices",
-    label: "repairingservices",
+    label: "repairing services",
     path: "/shop/listing",
   },
   {
     id: "accessories",
-    label: "Accessories",
+    label: "accessories",
     path: "/shop/listing",
   },
   {
     id: "search",
-    label: "Search",
+    label: "search",
     path: "/shop/search",
   },
 ];
 
 export const categoryOptionsMap = {
-  display: "display",
-  usedphone: "usedphone",
-  newphones: "newphones",
+  display: "Display",
+  screenguard: "Screenguard",
+  usedphones: "Used Phones",
   accessories: "Accessories",
-  repairingservices: "repairingservices",
+  wearables: "Wearables",
+  repairing: "Repairing Services",
+  computerAccessories: "computer parts",
 };
 
 export const brandOptionsMap = {
-  sunsung: "sunsung",
-  MI: "MI",
+  samsung: "samsung",
+  realme: "realme",
   oneplus: "oneplus",
-  vivooppo: "vivo&oppo",
-  Iphone: "Iphone",
-  "nokia": "nokia",
-};
-
-export const filterOptions = {
-  category: [
-    { id: "display", label: "display" },
-    { id: "usedphone", label: "usedphone" },
-    { id: "newphones", label: "newphones" },
-    { id: "accessories", label: "Accessories" },
-    { id: "repairingservices", label: "repairingservices" },
-  ],
-  brand: [
-    { id: "sunsung", label: "sunsung" },
-    { id: "MI", label: "MI" },
-    { id: "oneplus", label: "oneplus" },
-    { id: "vivo&oppo", label: "vivo&oppo's" },
-    { id: "Iphone", label: "Iphone" },
-    { id: "nokia", label: "nokia" },
-  ],
+  boat: "boat",
+  xiaomi: "xiaomi",
+  ui: "ui",
+  oppo: "oppo",
+  vivo: "vivo",
+  other: "other",
 };
 
 export const sortOptions = [

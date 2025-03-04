@@ -44,13 +44,14 @@ import samsung from "/brand/samsung.jpg";
 import Ui from "/brand/Ui.jpg";
 import vivo from "/brand/vivo.png";
 import Xiaomi from "/brand/Xiaomi.png";
+import boat from "/brand/boat.svg";
 
 const categoriesWithIcon = [
-  { id: "Display", label: "Display", icon: display, type: "image" },
-  { id: "Screenguard", label: "Screenguard", icon: screenguard, type: "image" },
-  { id: "SecondPhone", label: "Used Phones", icon: secondphone, type: "image" },
+  { id: "display", label: "Display", icon: display, type: "image" },
+  { id: "screenguard", label: "Screenguard", icon: screenguard, type: "image" },
+  { id: "usedphones", label: "Used Phones", icon: secondphone, type: "image" },
   {
-    id: "Audio",
+    id: "wearables",
     label: "Earbuds / Neckbands",
     icon: Headphones,
     type: "icon",
@@ -58,14 +59,14 @@ const categoriesWithIcon = [
 
   { id: "accessories", label: "Accessories", icon: WatchIcon, type: "icon" },
   {
-    id: "Repairing Service",
+    id: "repairing",
     label: "Repairing Service",
     icon: Settings,
     type: "icon",
   },
 
   {
-    id: "Computer Parts",
+    id: "computeraAccessories",
     label: "Computer Parts",
     icon: Monitor,
     type: "icon",
@@ -78,8 +79,10 @@ const brands = [
   { id: "vivo", label: "Vivo", icon: vivo },
   { id: "xiaomi", label: "Xiaomi", icon: Xiaomi },
   { id: "ui", label: "Ui", icon: Ui },
-  { id: "samsung", label: "samsung", icon: samsung },
-  { id: "realme", label: "realme", icon: realme },
+  { id: "samsung", label: "Samsung", icon: samsung },
+  { id: "realme", label: "Realme", icon: realme },
+  { id: "boat", label: "Boat", icon: boat },
+  { id: "other", label: "Other", icon: boat },
 ];
 const brandsWithIcon = [
   { id: "nike", label: "sumsung", icon: Shirt },
@@ -103,7 +106,6 @@ function ShoppingHome() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { toast } = useToast();
-
   function handleNavigateToListingPage(getCurrentItem, section) {
     sessionStorage.removeItem("filters");
     const currentFilter = {
