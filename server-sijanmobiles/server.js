@@ -33,6 +33,7 @@ app.use(
   cors({
     origin: [
       "https://sijanmobiles.vercel.app",
+      "https://www.sijanmobiles.store",
       process.env.LOCAL_FRONTED,
       process.env.PRODUCTION_FRONTEND_VERCEL,
       process.env.PRODUCTION_FRONTEND,
