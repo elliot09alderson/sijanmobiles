@@ -55,7 +55,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({
     message: "bhai working hai",
-    frontend: "https://srijan-mobiles-frontend.vercel.app/",
+    frontend:
+      "https://srijan-mobiles-frontend.vercel.app " +
+      " https://sijanmobiles.store",
   });
 });
 app.use("/api/auth", authRouter);
